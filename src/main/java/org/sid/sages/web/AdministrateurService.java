@@ -122,10 +122,21 @@ public class AdministrateurService implements Serializable {
 	public ResponseEntity<Produit> update(@RequestBody Produit e,@PathVariable Long id){
 		Produit produit = produitrepository.findById(id)
 		.orElseThrow(() -> new ResourceNotFoundException("Pas de produit  :: " + id));
-		 produit.setNom(e.getNom());
-		 produit.setDescription(e.getDescription());
-		// produit.setMarque(e.getMarque());
-		 produit.setAvatar(e.getAvatar());
+		 produit.setNameEN(e.getNameEN());
+		 produit.setNameFR(e.getNameFR());
+		 produit.setPaletEN(e.getPaletEN());
+		 produit.setPaletFR(e.getPaletFR());
+		 produit.setBoxpalet(e.getBoxpalet());
+		 produit.setDescriptionEN(e.getDescriptionEN());
+		 produit.setDescriptionFR(e.getDescriptionFR());
+		 produit.setGrosweightpalet(e.getGrosweightpalet());
+		 produit.setHeightpalet(e.getHeightpalet());
+		 produit.setCategory(e.getCategory());
+		 produit.setNetweightpalet(e.getNetweightpalet());
+		 produit.setPalet20(e.getPalet20());
+		 produit.setPalet40(e.getPalet40());
+		 
+
 		 Produit updateProduit=produitrepository.save(e);
 			
 			return ResponseEntity.ok(updateProduit);
@@ -169,9 +180,11 @@ public class AdministrateurService implements Serializable {
 	public ResponseEntity<Marque> update(@RequestBody Marque e,@PathVariable Long id){
 		Marque marque = marquerepository.findById(id)
 		.orElseThrow(() -> new ResourceNotFoundException("Pas de marque  :: " + id));
-		 marque.setNom(e.getNom());
+		 marque.setDescriptionEN(e.getDescriptionEN());
+		 marque.setDescriptionFR(e.getDescriptionFR());
 		 marque.setCategory(e.getCategory());
-		 marque.setAvatar(e.getAvatar());
+		 marque.setNameEN(e.getNameEN());
+		 marque.setNameFR(e.getNameFR());
 		 Marque updateMarque=marquerepository.save(e);
 			
 			return ResponseEntity.ok(updateMarque);
@@ -201,7 +214,18 @@ public class AdministrateurService implements Serializable {
 		Category category= categoryrepository.findById(id)
 		.orElseThrow(() -> new ResourceNotFoundException("Pas de category  :: " + id));
 		 category.setNom(c.getNom());
-		 category.setAvatar(c.getAvatar());
+		 category.setName(c.getName());
+		 category.setDescriptionEN(c.getDescriptionEN());
+		 category.setDescriptionFR(c.getDescriptionFR());
+		 category.setHarvestperiodEN(c.getHarvestperiodEN());
+		 category.setHarvestperiodFR(c.getHarvestperiodFR());
+		 category.setLocationEN(c.getLocationEN());
+		 category.setLocationFR(c.getLocationFR());
+		 category.setStatusEN(c.getStatusEN());
+		 category.setStatusFR(c.getStatusFR());
+		 category.setMarque(c.getMarque());
+		 category.setStorageEN(c.getStorageEN());
+		 category.setStorageFR(c.getStorageFR());
 		 
 		 Category updateCategory=categoryrepository.save(c);
 			

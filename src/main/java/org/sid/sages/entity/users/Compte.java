@@ -8,8 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
-
+import org.sid.sages.entity.Disscussion;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,16 +25,19 @@ public  class Compte   {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id ;
 	
-	@Column(name="nom")
-	private String nom  ;
-	@Column(name="pays")
-	private String pays  ;
+	@Column(name="fullname")
+	private String fullname  ;
+	@Column(name="country")
+	private String country  ;
 	 
-	@Column(name="adresse")
-	private String adresse  ;
+	@Column(name="password")
+	private String password  ;
 	@Column(name="email")
 	private String email  ;
-	@Column(name="tel")
-	private Long tel   ;
+	@Column(name="phone")
+	private Long phone   ;
 
+	
+	@OneToOne 
+	private Disscussion disscussion ;
 }

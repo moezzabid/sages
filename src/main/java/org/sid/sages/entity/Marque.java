@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -23,12 +25,20 @@ public class Marque {
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id ;
-	@Column(name="nom")
-	private String nom ;
+	@Column(name="nameFR")
+	private String nameFR ;
+	@Column(name="nameEN")
+	private String nameEN ;
 	
-	@Column(name="img")
-	private String avatar ;
+	@Column(name="descriptionFR")
+	private String descriptionFR;
+	@Column(name="descriptionEN")
+	private String descriptionEN;
+	
+	
 	@ManyToOne
 	private Category category;
-
+	
+	@OneToOne
+	private Image image ;
 }
